@@ -12,12 +12,12 @@
 <body>
   
 <div class="page">
-  <article class="card">
+  <article class="card" id="card">
 
     
     
 
-<a class="thumb" id="thumb">
+<a class="thumb">
 <img src="assets/image-equilibrium.jpg" alt="cube">
 
 <span class="thumb-overlay">
@@ -72,23 +72,31 @@
 
 <script>
   
-const thumb = document.getElementById("thumb");
+const card = document.getElementById("card");
 const popup = document.getElementById("popup");
 const closeBtn = document.getElementById("closeBtn");
 
 
-thumb.addEventListener("click", (e) => {
-  e.preventDefault();
+card.addEventListener("click", (e) => {
+  
+  if (e.target.tagName.toLowerCase() === "a") return;
+
   popup.classList.add("show");
+  document.body.style.overflow = "hidden"; 
 });
 
-closeBtn.addEventListener("click", () => {
+
+closeBtn.addEventListener("click", (e) => {
+  e.stopPropagation(); 
   popup.classList.remove("show");
-});
+  document.body.style.overflow = ""; });
 
 
-popup.addEventListener("click", (e) =>{
-  if(e.target === popup) popup.classList.remove("show");
+popup.addEventListener("click", (e) => {
+  if (e.target === popup) {
+    popup.classList.remove("show");
+    document.body.style.overflow = "";
+  }
 });
 
 
