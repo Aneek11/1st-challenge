@@ -13,7 +13,11 @@
   
 <div class="page">
   <article class="card">
-<a class="thumb" href="#" aria-label="Open item">
+
+    
+    
+
+<a class="thumb" id="thumb">
 <img src="assets/image-equilibrium.jpg" alt="cube">
 
 <span class="thumb-overlay">
@@ -22,6 +26,16 @@
   </span>
 
 </a>
+
+
+<div id="popup" class="popup">
+  <div class="popup-content">
+    <span class="close-btn" id="closeBtn">&times;</span>
+    <img src="assets/image-equilibrium.jpg" alt="large view">
+  </div>
+</div>
+
+
 
 <h1 class="title"><a href="#">Equilibrium #3429</a></h1>
 <p class="desc">Our Equilibrium collection promotes balance and calm.</p>
@@ -56,6 +70,29 @@
   </article>
 </div>
 
+<script>
+  
+const thumb = document.getElementById("thumb");
+const popup = document.getElementById("popup");
+const closeBtn = document.getElementById("closeBtn");
+
+
+thumb.addEventListener("click", (e) => {
+  e.preventDefault();
+  popup.classList.add("show");
+});
+
+closeBtn.addEventListener("click", () => {
+  popup.classList.remove("show");
+});
+
+
+popup.addEventListener("click", (e) =>{
+  if(e.target === popup) popup.classList.remove("show");
+});
+
+
+</script>
 
 
 
