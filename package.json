@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-"dev": "live-server src --port=5173 --open=./index.html"
-  },
+"dev": "live-server  --port=5173 --open=./index.html"
+  },          
   "keywords": [],
   "author": "",
   "license": "ISC",
